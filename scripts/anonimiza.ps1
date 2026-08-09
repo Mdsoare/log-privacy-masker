@@ -2,8 +2,8 @@
 .SYNOPSIS
     Script para anonimização recursiva de logs em diretórios.
 .EXAMPLE
-    .\anonimiza_2.0.ps1 -Diretorio "C:\Logs\Sistema" -Extensao "*.log"
-	.\anonimiza_2.0.ps1 -Diretorio . -Extensao "*.log.*"
+    .\anonimiza.ps1 -Diretorio "C:\Logs\Sistema" -Extensao "*.log"
+	.\anonimiza.ps1 -Diretorio . -Extensao "*.log.*"
 #>
 
 Param(
