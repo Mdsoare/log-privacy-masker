@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Script para anonimização recursiva de logs em diretórios.
 .EXAMPLE
@@ -31,7 +31,7 @@ $patternUnificado = '(name[=:]|nome[=:]|login[=:]|pass[=:]|passwd[=:]|password[=
 $arquivos = Get-ChildItem -Path $Diretorio -Filter $Extensao -Recurse
 $totalArquivos = $arquivos.Count
 $contador = 0
-Write-Host "Iniciando processamento de $totalArquivos arquivos..." -ForegroundColor Cyan
+Write-Output "Iniciando processamento de $totalArquivos arquivos..."
 
 foreach ($arquivo in $arquivos) {
     $contador++
@@ -56,4 +56,4 @@ foreach ($arquivo in $arquivos) {
 
 # Remove a barra de progresso ao finalizar
 Write-Progress -Activity "Anonimizando Logs" -Completed
-Write-Host "`nConcluído! $totalArquivos arquivos processados." -ForegroundColor Green
+Write-Output "`nConcluído! $totalArquivos arquivos processados."

@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Script para anonimização de dados sensíveis em logs (Compatível com nomes completos).
 .DESCRIPTION
@@ -40,7 +40,7 @@ if ([string]::IsNullOrWhiteSpace($ArquivoSaida)) {
 # Explicação: (chaves e separadores) seguido por ([^\]]+) que captura tudo até o próximo ]
 $patternUnificado = '(name[=:]|login[=:]|passwd[=:]|password[=:])([^\]]+)'
 
-Write-Host "Iniciando anonimização: $ArquivoEntrada" -ForegroundColor Cyan
+Write-Output "Iniciando anonimização: $ArquivoEntrada"
 
 try {
     # 4. Processamento Otimizado
@@ -48,7 +48,7 @@ try {
     (Get-Content $ArquivoEntrada) -replace $patternUnificado, '$1*****' | 
         Set-Content $ArquivoSaida -Encoding UTF8
 
-    Write-Host "Sucesso! Dados anonimizados salvos em: $ArquivoSaida" -ForegroundColor Green
+    Write-Output "Sucesso! Dados anonimizados salvos em: $ArquivoSaida"
 }
 catch {
     Write-Error "Ocorreu um erro durante o processamento: $_"
