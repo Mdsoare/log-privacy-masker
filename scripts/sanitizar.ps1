@@ -28,10 +28,10 @@ if (-not (Test-Path $ArquivoEntrada)) {
 # 2. Tratamento inteligente do nome de saída
 if ([string]::IsNullOrWhiteSpace($ArquivoSaida)) {
     $diretorio = Split-Path $ArquivoEntrada -Parent
-    
+
     # Se o diretório for vazio (arquivo na pasta atual), define como '.'
     if ([string]::IsNullOrWhiteSpace($diretorio)) { $diretorio = "." }
-    
+
     $nomeBase = Split-Path $ArquivoEntrada -Leaf
     $ArquivoSaida = Join-Path $diretorio "new_$nomeBase"
 }
@@ -45,7 +45,7 @@ Write-Output "Iniciando anonimização: $ArquivoEntrada"
 try {
     # 4. Processamento Otimizado
     # Lemos o arquivo, aplicamos a substituição em massa e salvamos com encoding UTF8
-    (Get-Content $ArquivoEntrada) -replace $patternUnificado, '$1*****' | 
+    (Get-Content $ArquivoEntrada) -replace $patternUnificado, '$1*****' |
         Set-Content $ArquivoSaida -Encoding UTF8
 
     Write-Output "Sucesso! Dados anonimizados salvos em: $ArquivoSaida"

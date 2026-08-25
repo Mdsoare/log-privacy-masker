@@ -3,7 +3,7 @@
     Script para anonimização recursiva de logs em diretórios.
 .EXAMPLE
     .\anonimiza.ps1 -Diretorio "C:\Logs\Sistema" -Extensao "*.log"
-	.\anonimiza.ps1 -Diretorio . -Extensao "*.log.*"
+    .\anonimiza.ps1 -Diretorio . -Extensao "*.log.*"
 #>
 
 Param(
@@ -37,7 +37,7 @@ foreach ($arquivo in $arquivos) {
     $contador++
     $percentual = ($contador / $totalArquivos) * 100
 
-	Write-Progress -Activity "Anonimizando Logs" `
+    Write-Progress -Activity "Anonimizando Logs" `
                    -Status "Processando arquivo $contador de $totalArquivos" `
                    -PercentComplete $percentual `
                    -CurrentOperation "Arquivo: $($arquivo.Name)"
@@ -46,7 +46,7 @@ foreach ($arquivo in $arquivos) {
     $caminhoSaida = Join-Path $arquivo.DirectoryName ("new_" + $arquivo.Name)
 
     try {
-        (Get-Content $caminhoOriginal) -replace $patternUnificado, '$1*****' | 
+        (Get-Content $caminhoOriginal) -replace $patternUnificado, '$1*****' |
             Set-Content $caminhoSaida -Encoding UTF8
     }
     catch {
