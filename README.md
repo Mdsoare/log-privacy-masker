@@ -43,7 +43,9 @@ Ferramenta em PowerShell para localização e mascaramento de dados sensíveis (
 
 ## 💻 Como Usar
 
-### 1. Processamento Lote / Recursivo (Recomendado) - `anonimiza.ps1`
+### 1. Processamento Lote / Recursivo (Recomendado) 
+
+- `anonimiza.ps1`
 
 Processa todos os arquivos de log de um diretório e seus subdiretórios:
 
@@ -55,7 +57,9 @@ Processa todos os arquivos de log de um diretório e seus subdiretórios:
 .\anonimiza.ps1 -Diretorio "C:\Logs\Sistema" -Extensao "*.log.*"
 ```
 
-### 2. Processamento de Arquivo Único - `sanitizar.ps1`
+### 2. Processamento de Arquivo Único
+
+- `sanitizar.ps1`
 
 Ideal para execuções pontuais via linha de comando ou pipelines:
 
@@ -73,14 +77,14 @@ Ideal para execuções pontuais via linha de comando ou pipelines:
 
 O script localiza padrões chave/valor delimitados por parênteses colchetes `[ ]` e substitui o valor por asteriscos:
 
-### Entrada Exemplo:
+### Entrada Exemplo
 
 ```text
 2026-03-26 22:00:38 INFO AuthController - User login:[antony.santiago] authenticated with pass:[Secret123!]
 2026-03-26 22:00:39 WARN Service - Event triggered by name:[John Doe] token:[abc123xyz]
 ```
 
-### Saída Gerada:
+### Saída Gerada
 
 ```text
 2026-03-26 22:00:38 INFO AuthController - User login:[*****] authenticated with pass:[*****]
