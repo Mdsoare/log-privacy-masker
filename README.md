@@ -43,7 +43,7 @@ Ferramenta em PowerShell para localização e mascaramento de dados sensíveis (
 
 ## 💻 Como Usar
 
-### 1. Processamento Lote / Recursivo (Recomendado) 
+### 1. Processamento Lote / Recursivo (Recomendado)
 
 - `anonimiza.ps1`
 
